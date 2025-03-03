@@ -1,89 +1,116 @@
 # 🧠 **Lógica del Proyecto**  
 
 ## 📌 1. Descripción  
-**Nombre del Proyecto:** [Nombre del Proyecto]  
-**Fecha:** [DD/MM/AAAA]  
-**Autor:** [Nombre del Asistente de Lógica]  
+**Nombre del Proyecto:** [Nombre del Proyecto Proudctos en un invetarios]  
+**Fecha:** [02/03/2025]  
+**Autor:** [Nombre del Asistente de Lógica Denis Colon]  
 
 📢 **Resumen:**  
-[Breve explicación del propósito del programa y qué problema resuelve.]  
+[Este codigo normamente resumido es de hacer un inventarios de productos y los guarda correctamente y buscar los productos suceivamente.]  
 
----
+# Gestión de Productos en un Inventario
 
-## 🔄 2. Flujo del Programa  
-1️⃣ [Paso 1: Explicar qué hace el programa primero]  
-2️⃣ [Paso 2: Explicar el siguiente paso lógico]  
-3️⃣ [Paso 3: Continuar describiendo los pasos del programa]  
-4️⃣ [Paso 4: Explicar la salida final esperada]  
+## Descripción
+Este programa permite administrar un inventario de productos. El sistema proporciona las siguientes funcionalidades:
+- Registrar productos con su nombre y cantidad disponible.
+- Actualizar el stock de un producto.
+- Mostrar todos los productos disponibles.
+- Filtrar y mostrar los productos con stock menor a 10 unidades.
 
-📌 **Diagrama de flujo (Opcional):**  
-(Si el programa es complejo, se puede agregar un diagrama de flujo aquí.O sino borra esta seccion.)  
+## Herramientas necesarias
+- **HashMap<String, Integer>**: Para almacenar los productos y las cantidades disponibles en el inventario.
+- **Streams API y Lambda**: Para filtrar los productos con bajo stock.
+- **Scanner**: Para interactuar con el usuario y registrar productos o realizar otras operaciones.
 
----
+## Funcionalidades
 
-## 🔧 3. Funciones Clave  
-📌 **Lista de funciones que el programador debe implementar:**  
+### 1. **Registrar producto**
+El programa permite registrar productos con un nombre y una cantidad disponible. Si el producto ya existe en el inventario, el sistema notificará que ya está registrado.
 
-| Función | Entrada | Salida | Descripción |  
-|---------|--------|--------|-------------|  
-| `nombreFuncion1()` | [Tipo de dato] | [Tipo de dato] | [Explicación breve] |  
-| `nombreFuncion2()` | [Tipo de dato] | [Tipo de dato] | [Explicación breve] |  
+### 2. **Actualizar stock**
+El usuario puede actualizar el stock de un producto ya registrado, ingresando un nuevo valor para la cantidad disponible. Si el producto no está en el inventario, el sistema informará que no existe.
 
-✏️ **Ejemplo:**  
+### 3. **Mostrar productos**
+Se muestran todos los productos registrados junto con su cantidad disponible en el inventario.
 
-| Función | Entrada | Salida | Descripción |  
-|---------|--------|--------|-------------|  
-| `validarNumero(int num)` | Un número entero | `true` o `false` | Verifica si el número es positivo |  
-| `calcularResultado(int num)` | Un número entero validado | Número entero | Multiplica el número por 2 |  
+### 4. **Filtrar productos con stock menor a 10**
+El programa filtra los productos cuyo stock es menor a 10 unidades utilizando Streams y Lambda para mostrar únicamente aquellos productos con bajo stock.
 
----
+## Flujo del programa
 
-## 🔹 4. Reglas y Restricciones  
-📌 **Condiciones que el programador debe seguir:**  
-✅ [Regla 1: Explicar qué valores son válidos o inválidos]  
-✅ [Regla 2: Explicar si hay excepciones o errores que manejar]  
-✅ [Regla 3: Explicar si el programa debe seguir un formato específico]  
+1. **Menú interactivo**
+   - El programa presenta un menú con las siguientes opciones:
+     1. Registrar producto
+     2. Actualizar stock
+     3. Mostrar todos los productos
+     4. Filtrar productos con stock menor a 10
+     5. Salir
+   - El usuario selecciona una opción mediante números (1-5) para realizar la acción deseada.
 
-✏️ **Ejemplo:**  
-- El número ingresado debe ser **mayor que 0**.  
-- Si el usuario ingresa texto en vez de número, el programa debe **mostrar un mensaje de error**.  
-- El programa debe funcionar con **números enteros** únicamente.  
+2. **Registrar producto**
+   - El usuario introduce el nombre del producto y la cantidad disponible.
+   - Si el producto ya existe, el sistema informa que el producto ya está registrado.
+   - Si no existe, se agrega el producto al inventario.
 
----
+3. **Actualizar stock**
+   - El usuario introduce el nombre del producto que desea actualizar.
+   - Si el producto existe en el inventario, el sistema pide la nueva cantidad y actualiza el stock.
+   - Si el producto no está registrado, el sistema informa al usuario.
 
-## 📌 5. Ejemplo de Entrada y Salida  
-| Entrada | Salida  |  
-|---------|--------|  
-| [Ejemplo] | [Ejemplo] |  
-| [Ejemplo] | [Ejemplo] |  
+4. **Mostrar productos**
+   - El sistema muestra todos los productos registrados en el inventario junto con sus cantidades.
 
-✏️ **Ejemplo para un programa de conversión de temperatura:**  
+5. **Filtrar productos con bajo stock**
+   - Usando **Streams** y **Lambda**, el programa filtra y muestra los productos con stock menor a 10 unidades.
 
-| Entrada (°C) | Salida (°F) |  
-|-------------|------------|  
-| 0           | 32         |  
-| 100         | 212        |  
-| -40         | -40        |  
+## Ejemplo de ejecución
 
----
+### Menú de opciones:
 
-## 🛠 6. Casos Especiales  
-📌 **Situaciones que el programador debe manejar:**  
-- **Caso 1:** [Descripción de un caso límite o posible error]  
-- **Caso 2:** [Descripción de otro caso especial]  
+*** Gestión de Inventario ***
 
-✏️ **Ejemplo:**  
-- Si el usuario ingresa un número negativo, mostrar `"Número inválido"`.  
-- Si el usuario ingresa una letra en vez de número, mostrar `"Error: entrada inválida"`.  
+Registrar producto
+Actualizar stock
+Mostrar todos los productos
+Filtrar productos con stock menor a 10
+Salir Selecciona una opción: 1
+shell
+Copiar
 
----
+### Registrar un producto:
+Ingresa el nombre del producto: Laptop Ingresa la cantidad disponible: 5 Producto registrado exitosamente.
 
-## 🔄 7. Notas Adicionales  
-📌 **Información extra para el programador (si aplica).**  
+shell
+Copiar
 
-✏️ **Ejemplo:**  
-- Se puede mejorar el rendimiento usando `Math.round()` en la conversión de temperatura.  
-- Se recomienda usar `Scanner` para capturar la entrada del usuario.  
+### Mostrar todos los productos:
+*** Gestión de Inventario ***
+
+Registrar producto
+Actualizar stock
+Mostrar todos los productos
+Filtrar productos con stock menor a 10
+Salir Selecciona una opción: 3
+Productos en el inventario: Producto: Laptop | Cantidad: 5
+
+shell
+Copiar
+
+### Filtrar productos con bajo stock:
+*** Gestión de Inventario ***
+
+Registrar producto
+Actualizar stock
+Mostrar todos los productos
+Filtrar productos con stock menor a 10
+Salir Selecciona una opción: 4
+Productos con stock menor a 10 unidades: Producto: Laptop | Cantidad: 5
+
+markdown
+Copiar
+
+## Conclusión
+Este programa permite gestionar un inventario de productos de manera eficiente utilizando Java. Utiliza **HashMap** para almacenar productos y sus cantidades, **Streams y Lambda** para filtrar los productos con stock bajo, y **Scanner** para interactuar con el usuario. Es un buen ejercicio para familiarizarse con las colecciones y las funcionalidades de Java para la manipulación de datos.
 
 
 
