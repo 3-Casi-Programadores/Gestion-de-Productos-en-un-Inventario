@@ -1,73 +1,104 @@
-# 📘 Documentación del Proyecto
+java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
+import java.util.stream.Collectors;
 
-## 📌 1. Descripción  
-**Nombre del Proyecto:** Gestión de Productos de Inventario  
-**Fecha de Creación:** 03/03/2025 
-**Autor(es):** Uziel Garcia
-**Versión:** 1.0  
+public class GestionInventario {
 
-📢 **Resumen:**  
-Este programa permite gestionar un inventario de productos. Los usuarios pueden registrar nuevos productos, actualizar el stock de productos existentes, ver todos los productos en el inventario y filtrar los productos con un stock menor a 10 unidades. El programa está diseñado para ser interactivo mediante un menú, donde el usuario puede seleccionar distintas opciones para realizar acciones sobre el inventario. Se recomienda seguir una lógica modular y fácil de entender, dividiendo cada acción en métodos separados para facilitar su mantenimiento y comprensión.
+    // HashMap para almacenar los productos con su cantidad
+    private static final HashMap<String, Integer> inventario = new HashMap<>();
 
----
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int opcion;
 
-## 🛠 2. Requisitos  
-📌 **Lenguaje de programación:** Java  
-📌 **Versión de Java recomendada:** Java 17  
-📌 **Dependencias necesarias:**  
-- No se requieren dependencias externas.  
+        // Menú interactivo
+        do {
+            System.out.println("\n*** Gestión de Inventario ***");
+            System.out.println("1. Registrar producto");
+            System.out.println("2. Actualizar stock");
+            System.out.println("3. Mostrar todos los productos");
+            System.out.println("4. Filtrar productos con stock menor a 10");
+            System.out.println("5. Salir");
+            System.out.print("Selecciona una opción: ");
+            opcion = scanner.nextInt();
+            scanner.nextLine(); // Limpiar el buffer del Scanner
 
-📌 **Herramientas recomendadas:**  
-- IDE sugerido: [VS Code]  
-- Compilador: `javac`  
+            switch (opcion) {
+                case 1:
+                    registrarProducto(scanner);
+                    break;
+                case 2:
+                    actualizarStock(scanner);
+                    break;
+                case 3:
+                    mostrarProductos();
+                    break;
+                case 4:
+                    filtrarProductosBajoStock();
+                    break;
+                case 5:
+                    System.out.println("¡Hasta luego!");
+                    break;
+                default:
+                    System.out.println("Opción no válida. Intenta de nuevo.");
+            }
+        } while (opcion != 5);
 
----
+        scanner.close();
+    }
 
-## 📄 3. Funcionalidades
+    // Método para registrar un nuevo producto en el inventario
+    private static void registrarProducto(Scanner scanner) {
+        System.out.print("Ingresa el nombre del producto: ");
+        String nombre = scanner.nextLine();
+        System.out.print("Ingresa la cantidad disponible: ");
+        int cantidad = scanner.nextInt();
+        scanner.nextLine(); // Limpiar el buffer del Scanner
 
-El programa permite las siguientes funcionalidades:
+        if (inventario.containsKey(nombre)) {
+            System.out.println("El producto ya existe en el inventario.");
+        } else {
+            inventario.put(nombre, cantidad);
+            System.out.println("Producto registrado exitosamente.");
+        }
+    }
 
-1. **Registrar Producto:** Permite al usuario ingresar un nuevo producto al inventario, con su nombre y cantidad disponible. Si el producto ya existe, muestra un mensaje indicándolo.
-   
-2. **Actualizar Stock:** Permite al usuario actualizar la cantidad disponible de un producto en el inventario.
-   
-3. **Mostrar Productos:** Muestra todos los productos y sus cantidades en el inventario.
+    // Método para actualizar el stock de un producto
+    private static void actualizarStock(Scanner scanner) {
+        System.out.print("Ingresa el nombre del producto a actualizar: ");
+        String nombre = scanner.nextLine();
 
-4. **Filtrar Productos con Stock Bajo:** Muestra todos los productos cuyo stock es menor a 10 unidades.
+        if (inventario.containsKey(nombre)) {
+            System.out.print("Ingresa la nueva cantidad disponible: ");
+            int cantidad = scanner.nextInt();
+            scanner.nextLine(); // Limpiar el buffer del Scanner
+            inventario.put(nombre, cantidad);
+            System.out.println("Stock actualizado exitosamente.");
+        } else {
+            System.out.println("El producto no existe en el inventario.");
+        }
+    }
 
----
+    // Método para mostrar todos los productos y sus cantidades
+    private static void mostrarProductos() {
+        if (inventario.isEmpty()) {
+            System.out.println("El inventario está vacío.");
+        } else {
+            System.out.println("\nProductos en el inventario:");
+            for (Map.Entry<String, Integer> entry : inventario.entrySet()) {
+                System.out.println("Producto: " + entry.getKey() + " | Cantidad: " + entry.getValue());
+            }
+        }
+    }
 
-## 🧑‍💻 4. Lógica de Implementación
+    // Método para filtrar y mostrar productos con stock menor a 10 unidades
+    private static void filtrarProductosBajoStock() {
+        System.out.println("\nProductos con stock menor a 10 unidades:");
 
-1. **Registro de Producto:**  
-   - El programa utiliza un `HashMap` donde la clave es el nombre del producto y el valor es la cantidad disponible.  
-   - Se verifica si el producto ya existe en el inventario, y si es así, se informa al usuario. Si no, se agrega el producto al inventario.
-
-2. **Actualización de Stock:**  
-   - Se solicita el nombre del producto y, si existe, se permite al usuario ingresar una nueva cantidad, la cual reemplaza la anterior.
-
-3. **Mostrar Productos:**  
-   - Si el inventario no está vacío, se muestra la lista de todos los productos y sus cantidades.
-
-4. **Filtrar Productos con Stock Bajo:**  
-   - Utiliza `Streams` de Java para filtrar y mostrar los productos con un stock inferior a 10 unidades. Esto se logra utilizando una expresión lambda que verifica si el valor del stock es menor a 10.
-
----
-
-## ⚙️ 5. Estructura de Datos
-
-### **HashMap**  
-El inventario se maneja mediante un `HashMap<String, Integer>`, donde:
-- **Clave (String):** Nombre del producto.
-- **Valor (Integer):** Cantidad disponible del producto.
-
----
-
-## 🔧 6. Mejoras Futuras
-
-- **Persistencia de Datos:** Actualmente, los datos del inventario solo se mantienen en la memoria durante la ejecución del programa. Se puede agregar funcionalidad para guardar y cargar el inventario desde un archivo (por ejemplo, en formato `.txt` o `.csv`).
-- **Interfaz Gráfica de Usuario (GUI):** En lugar de una interfaz de consola, se podría crear una interfaz gráfica para facilitar la interacción del usuario.
-- **Gestión de Categorías:** Podría implementarse una clasificación de productos en categorías, para tener un inventario más organizado.
-
----
-
+        // Usamos Streams y Lambda para filtrar productos con stock bajo
+        inventario.entrySet().stream()
+                .filter(entry -> entry.getValue() < 10) // Filtramos productos con stock < 10
+                .forEach(entry -> System.out.println("Producto: " + entry.getKey() + " | Cantidad: " + entry.getValue()));
+    }
+}
