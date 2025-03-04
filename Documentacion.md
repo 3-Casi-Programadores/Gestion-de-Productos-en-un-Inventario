@@ -2,8 +2,11 @@
 
 ## 📌 1. Descripción  
 **Nombre del Proyecto:** Gestión de Inventario  
+
 **Fecha de Creación:** 03/03/2025
+
 **Autor(es):** Uziel Garcia
+
 **Versión:** 1.0  
 
 📢 **Resumen:**  
