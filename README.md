@@ -1,46 +1,37 @@
-# 📚 Sistema de Gestión de Productos de Inventarios.
+# 📦 **Gestión de Productos en un Inventario**  
 
-![GitHub repo size](https://img.shields.io/github/repo-size/3-Casi-Programadores/Sistema-de-Gestion-de-Estudiantes)
-![GitHub contributors](https://img.shields.io/github/contributors/3-Casi-Programadores/Sistema-de-Gestion-de-Estudiantes)
-![GitHub last commit](https://img.shields.io/github/last-commit/3-Casi-Programadores/Sistema-de-Gestion-de-Estudiantes)
+![GitHub repo size](https://img.shields.io/github/repo-size/4-dEVS-UTH/Gestion-de-Productos-en-un-Inventario)  
+![GitHub contributors](https://img.shields.io/github/contributors/4-dEVS-UTH/Gestion-de-Productos-en-un-Inventario)  
+![GitHub last commit](https://img.shields.io/github/last-commit/4-dEVS-UTH/Gestion-de-Productos-en-un-Inventario)  
 
+## 📌 **Descripción**  
+Este proyecto en **Java** permite la administración de un **inventario de productos**, proporcionando las siguientes funcionalidades:  
 
-## Descripción
+✅ Registrar productos con su nombre y cantidad disponible.  
+✅ Actualizar el stock de un producto existente.  
+✅ Mostrar todos los productos disponibles en el inventario.  
+✅ Filtrar y mostrar productos con stock menor a **10 unidades**.  
 
-Este proyecto es un sistema en Java que permite gestionar una lista de estudiantes y sus calificaciones. Permite realizar las siguientes acciones:
+## 👥 **Integrantes**  
+- Denis Colon  
+- Carlos Campos  
+- Uziel Alejandro  
+- Elis González  
 
-- Registrar un estudiante con su nombre y calificación.
-- Mostrar todos los estudiantes registrados.
-- Buscar estudiantes con calificaciones mayores o iguales a 80 utilizando Streams.
-- Eliminar un estudiante por su nombre.
+## 🔹 **Características**  
+- Uso de `HashMap<String, Integer>` para almacenar productos y sus cantidades.  
+- Uso de `Streams API` y `Lambda` para filtrar productos con stock bajo.  
+- Interacción con el usuario mediante `Scanner` para la gestión del inventario.  
 
-## Integrantes
+## 💻 **Lenguaje de Programación**  
+<img src="https://upload.wikimedia.org/wikipedia/en/3/30/Java_programming_language_logo.svg" alt="Java Logo" width="100">  
 
-- Denis Colon
-- Carlos Campos
-- Uziel Alejandro
+## ⚙️ **Requisitos**  
+- JDK 8 o superior.  
+- Un IDE o terminal para ejecutar el programa.  
 
+## 🚀 **Instalación y Ejecución**  
 
-## Características
-
-- Uso de `HashMap<String, Integer>` para almacenar los estudiantes y sus calificaciones.
-- Uso de `ArrayList` para gestionar las listas de estudiantes.
-- Uso de `Streams` y `Lambda` para filtrar los estudiantes con calificaciones >= 80.
-- Interacción con el usuario mediante `Scanner`.
-
-## Lenguaje de Programación
-<img src="https://upload.wikimedia.org/wikipedia/en/3/30/Java_programming_language_logo.svg" alt="Java Logo" width="100">
-
-## Requisitos
-
-- JDK 8 o superior.
-- IDE o terminal para ejecutar el programa.
-
-## Instalación
-
-Para ejecutar este proyecto, sigue estos pasos:
-
-1. Clona el repositorio:
+1️⃣ **Clona el repositorio:**  
    ```bash
-   git clone https://github.com/3-Casi-Programadores/Sistema-de-Gestion-de-Estudiantes.git
-
+   git clone https://github.com/4-dEVS-UTH/Gestion-de-Productos-en-un-Inventario.git
